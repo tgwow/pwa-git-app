@@ -1,0 +1,33 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+ul {
+	list-style: none;
+}
+
+html {
+  // this define 1rem as 10px;
+  font-size: 62.5%;
+}
+body {
+  box-sizing: border-box;
+  background-color: var(--color-dark-1);
+}
+
+p {
+  font-size: 1.8rem;;
+  font-weight: 300;
+  line-height: 2.4rem;
+}
+
+a,
+a:link,
+a:active {
+  text-decoration: none;
+}
+

@@ -1,0 +1,16 @@
+@mixin background {
+  padding: 1.5rem 2rem;
+  background-color: var(--color-dark-2);
+}
+
+@mixin yellow-border {
+  &::before {
+    content: '';
+      position: absolute;
+      top: -15%;
+      left: -30px;
+      height: 120%;
+      width: 2rem;
+      background-color: var(--color-primary);
+  }
+}
