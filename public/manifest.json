@@ -1,6 +1,6 @@
 {
   "short_name": "pwa-git-app",
-  "name": "A simple pwa git app",
+  "name": "A github app for see users informations",
   "icons": [
     {
       "src": "favicon.png",

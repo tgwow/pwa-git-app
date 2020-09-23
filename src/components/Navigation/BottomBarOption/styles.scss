@@ -1,0 +1,11 @@
+.bottomBarOption {
+  padding: 1rem;
+  color: var(--color-icons);  
+  cursor: pointer;
+  transition: all .2s;
+
+  &:hover {
+    color: var(--color-dark);
+
+  }
+}

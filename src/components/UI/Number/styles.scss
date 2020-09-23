@@ -1,0 +1,11 @@
+.number {
+  height: 10rem;
+  background-color: var(--color-grey-2);
+  padding: 1.5rem 0;
+
+  &__list {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+  }
+}

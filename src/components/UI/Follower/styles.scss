@@ -1,0 +1,49 @@
+@import "../../../scss/abstracts/_mixins";
+
+.follower {
+  background-color: var(--color-dark-2);
+  padding: 3rem 2rem;
+  overflow: hidden;
+  border-bottom: 1px solid var(--color-grey-2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+ 
+
+  @include yellow-border;
+
+
+  &:first-child {
+    padding-top: 3rem;
+  }
+
+  &__link {
+    &:link,
+    &:visited {
+      color: var(--color-light);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      transition: all .2s;
+
+    }
+    
+    @include hover;
+    
+  }
+
+  &__box {
+    display: flex;
+    align-items: center;
+  }
+
+  &__name {
+    margin-left: 2rem;
+
+    &::before {
+      content: '#';
+    }
+  }
+}

@@ -1,0 +1,10 @@
+.repositories {
+  width: 100%;
+  border-right: 1px solid var(--color-border);
+  overflow-y: scroll;
+  scrollbar-width: none;
+}
+
+.repositories::-webkit-scrollbar {
+  display: none;
+}

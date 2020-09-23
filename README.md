@@ -14,4 +14,5 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 ## Technologies
 
 [React.js](https://reactjs.com).
+
 [Typescript.js](https://reactjs.com).

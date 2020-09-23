@@ -14,3 +14,9 @@
       background-color: var(--color-primary);
   }
 }
+
+@mixin hover {
+  &:hover {
+    color: var(--color-grey);
+  }
+}

@@ -1,0 +1,12 @@
+.sidebar {
+  flex: 0.2;
+  padding: 2rem;
+  padding-top: 6rem;
+  border-right: 1px solid rgb(68, 68, 68);
+
+  // hide sidebar to show bottom bar
+  @media (max-width: '420px') {
+    display: none;
+  } 
+}
+

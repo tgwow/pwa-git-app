@@ -1,0 +1,12 @@
+.followers {
+  width: 100%;
+  border-right: 1px solid var(--color-border);
+
+  scrollbar-width: none;
+  overflow-y: scroll;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+

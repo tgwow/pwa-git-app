@@ -1,0 +1,54 @@
+@import '../../../scss/abstracts/_mixins';
+
+.repository {
+  background-color: var(--color-dark-2);
+  padding: 3rem 2rem;
+  overflow: hidden;
+  border-bottom: 1px solid var(--color-grey-2);
+
+  &:first-child {
+    padding-top: 5rem;
+  }
+
+  &__link {
+    &:link,
+    &:visited {
+      color: var(--color-light);
+    }
+  }
+
+  &__name {
+    position: relative;
+    @include yellow-border;
+  }
+
+  &__desc {
+    font-size: 1.5rem;
+  }
+
+  &__info {
+    padding-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__stars {
+    display: flex;
+    align-items: center;
+
+    & > :first-child {
+      margin-right: 1rem;
+      color: var(--color-primary);
+      // @include hover;
+    }
+  }
+
+  &__options {
+    & > :first-child {
+      margin-right: 1rem;
+      color: var(--color-tertiary);
+      // @include hover;
+    }
+    color: var(--color-secondary);
+  }
+}

@@ -1,0 +1,21 @@
+.numberOption {
+
+  &__item {
+    padding: 0 1rem;
+    text-align: center;
+    width: 10rem;
+  } 
+  
+  &__link {
+    &:link,
+    &:visited {
+      text-decoration: none;
+      color: var(--color-light);
+      font-size: 4rem;
+    }
+  }
+  
+  &__text { 
+    font-size: 1.7rem;
+  }
+}
