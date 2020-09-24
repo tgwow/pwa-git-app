@@ -11,7 +11,7 @@ const Numbers: React.FC = () =>  {
         <NumberOption qtd={12} title="Seguidores"/>
         <NumberOption qtd={122} title="Seguindo"/>
       </ul>
-  </div>
+    </div>
   )
 }
 

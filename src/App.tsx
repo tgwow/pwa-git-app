@@ -1,39 +1,24 @@
-import React, { useState } from 'react';
-import { Redirect, Route, Switch } from 'react-router-dom';
+import React, {useContext, useState} from 'react';
 
 import './scss/main.scss';
 
-import Home from './pages/Home';
-import Login from './pages/Login';
-import Repositories from './pages/Repositories';
-import Followers from './pages/Followers';
-
 import Layout from './components/Generic/Layout'
+import AuthContext from "./contexts/auth";
+import AuthRoutes from "./routes/auth.routes";
+import AppRoutes from "./routes/app.routes";
 
 const App:React.FC = () => {
-  
-  let routes;
-  const [LoggedIn, SetLoggedIn] = useState(true);
-    
-  if (!LoggedIn) {
-    routes = (
-      <Switch>
-        <Route exact path="/" component={ Login }  />
-        <Redirect to="/" />
-      </Switch>
-    )
-  } else {
-    routes = (
-      <Switch>
-        <Route exact path="/home" component={ Home } />
-        <Route exact path="/repos" component={ Repositories } />
-        <Route exact path="/seguidores" component={ Followers } />
-        <Route exact path="/seguindo" component={ Followers } />
-        <Redirect to="/home" />
-      </Switch>
-    )
-  }
-  return <Layout loggedIn={LoggedIn}>{routes}</Layout>;
-}
 
+  let routes;
+  const { loggedIn, user } = useContext(AuthContext);
+  // renderizo minhas rotas de acordo com estado loggedIn do meu contexto
+  // quando usuario conseguir logar, meu estado receberá true
+  // e todos que componentes que utilizam eles refletiram essa alteração
+  // ou seu, minha AppRoutes é renderizada
+  loggedIn?
+    routes = ( <AppRoutes/> ) :
+    routes = ( <AuthRoutes/> )
+
+  return <Layout loggedIn={loggedIn}>{routes}</Layout>;
+}
 export default App;

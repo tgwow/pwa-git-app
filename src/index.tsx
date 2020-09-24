@@ -1,11 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import Routes from './routes';
 import Wrapper from './components/UI/Wrapper';
+import {AuthProvider} from './contexts/auth'
+import { BrowserRouter } from 'react-router-dom';
 
-import { BrowserRouter, Route } from 'react-router-dom';
 
+// type PropsWithChildren<P> = P | null;
+//
+// interface Person {
+//     children: PropsWithChildren<any>
+// }
 
 import * as serviceWorker from './serviceWorker';
 
@@ -13,7 +18,9 @@ ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <Wrapper>
-        <App/>
+        <AuthProvider>
+          <App/>
+        </AuthProvider>
       </Wrapper>
     </BrowserRouter >
   </React.StrictMode>,

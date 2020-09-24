@@ -11,10 +11,12 @@ interface BottomBarProps {
   active?: boolean;
 }
 
-const BottomBarOption: React.FC<BottomBarProps> = ({ Icon, size, active }) => {
+// eslint-disable-next-line react/prop-types
+const BottomBarOption: React.FC<BottomBarProps> = (props) => {
+  const { active, Icon, size } = props;
   return (
     <a className={`bottomBarOption ${active}`} >
-        <Icon size={size} />
+      <Icon size={size} />
     </a>
   )
 }

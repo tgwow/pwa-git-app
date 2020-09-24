@@ -14,7 +14,7 @@ const NumberOption: React.FC<NumberProps> = ({ qtd, title }) =>{
     <li className="numberOption__item">
       <Link className="numberOption__link" to="/followers">
         {qtd}
-      <p className="numberOption__text">{title}</p>
+        <p className="numberOption__text">{title}</p>
       </Link>
     </li>
   )
