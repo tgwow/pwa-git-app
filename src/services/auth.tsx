@@ -1,24 +1,26 @@
-const url = `https://api.github.com/users/`;
-
 // herança de tipo, isso é muito loco
 // response tipo da resposta que o fetch retorna
 // aqui estou incluindo um novo tipo pra essa resposta
-interface ResponseData<T> extends Response {
-  parsedBody?: T;
+// type ResponseData2<T> = {
+//   parsedBody: T;
+// }
+// type ResponseDataUser<T> = ResponseData2<T> | Response;
+//
+// interface ResponseData<T> extends Response {
+//   parsedBody?: T;
+// }
+export interface HeaderProps {
+  Authorization?: Headers | string[][]
 }
 
-export async function logIn<T>(
-  username: string
-): Promise<ResponseData<T>> {
-  const response: ResponseData<T> = await fetch(url + username);
-
-  // faço o parse do response e incluo na minha nova propriedade
-  response.parsedBody = await response.json();
+export async function get(url : string, args?: HeaderProps): Promise<Response> {
+  const headers : HeadersInit = {
+    'Authorization': `${args?.Authorization|| process.env.REACT_APP_GIT_TOKEN }`
+  }
+  const response : Response = await fetch(url, headers);
 
   if (!response.ok) {
     throw new Error(response.statusText);
   }
   return response;
-
-  // return body;
 }

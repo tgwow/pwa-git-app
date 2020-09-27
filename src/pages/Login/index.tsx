@@ -4,30 +4,42 @@ import { FaGithub, FaArrowRight } from 'react-icons/fa'
 
 import './styles.scss'
 
-import AuthContext from '../../contexts/auth';
+import AuthContext, {User} from '../../contexts/auth';
 
 const Login: React.FC = () => {
   const [username, setUsername] = useState('');
-  const { logIn } = useContext(AuthContext);
-  
-  
+  const { get, setUser } = useContext(AuthContext);
+
   async function handleSubmit(e : React.FormEvent) {
     e.preventDefault();
-    // chamando a funcao disponibilizada pelo meu contexto para tentar logar
-    const {status, msg} = await logIn(username);
-    if (status == 404) {
-      setUsername('');
-      showMessageError(msg)
+
+    if (!username) {
+      showMessageError('Campo obrigatório');
+      return ;
     }
 
+    // chamando a funcao disponibilizada pelo meu contexto para tentar logar
+    const url = process.env.REACT_APP_GIT_URL;
+
+    const {status, msg, data} = await get<User>(url+username);
+    if (data) {
+      setUser(data);
+      localStorage.setItem("@Auth:user", JSON.stringify(data));
+    }
+
+    if (status === 404) {
+      setUsername('');
+      showMessageError(`User ${msg}`)
+    }
   }
 
   function showMessageError(message : string ) {
     const elt = document.getElementById("error-message") as HTMLElement;
-    elt.textContent = `User ${message}!`;
+    elt.textContent = message;
     elt.style.opacity = '1';
     elt.style.visibility = 'visible';
   }
+
   return (
     <div className="flex-center">
       <div className="login">
@@ -41,11 +53,10 @@ const Login: React.FC = () => {
               className="form__input"
               type="text"
               placeholder="Usuário"
-              required
               value={username}
               onChange={(e) => setUsername(e.target.value)}
             />
-            <label id="error-message" className="form__label"></label>
+            <label id="error-message" className="form__label"/>
           </div>
 
           <div className="form__group">

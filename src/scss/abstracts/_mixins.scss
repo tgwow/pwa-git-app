@@ -7,11 +7,12 @@
   &::before {
     content: '';
       position: absolute;
-      top: -15%;
-      left: -30px;
-      height: 120%;
+      top: -25%;
+      left: -35px;
+      height: 140%;
       width: 2rem;
       background-color: var(--color-primary);
+      border-radius: 10rem;
   }
 }
 

@@ -1,22 +1,28 @@
 import React from 'react'
 
 import { FiArrowRight } from 'react-icons/fi'
-import user from '../../../me.jpeg';
 
 import Avatar from '../Avatar/Avatar'
 
 import './styles.scss';
 
-const Follower: React.FC = () => {
+import {FollowerProps} from "../../../pages/Followers";
+import {Link} from "react-router-dom";
+
+const Follower: React.FC<FollowerProps> = ({fol}) => {
+
+  function handleClick() {
+    console.log(fol.login);
+  }
   return (
     <li className="follower">
-      <a href="#" className="follower__link">
+      <Link to={`home/${fol.login}`} className="follower__link" onClick={handleClick}>
         <div className="follower__box">
-          <Avatar size={ 6.4 } image={user} />
-          <h3 className="follower__name heading-tertiary">tgwow</h3>
+          <Avatar size={ 6.4 } image={fol.avatar_url} />
+          <h3 className="follower__name heading-tertiary">{fol.login}</h3>
         </div>
         <FiArrowRight size={24} />
-      </a>
+      </Link>
     </li>
   )
 }

@@ -2,7 +2,7 @@
 
 .repository {
   background-color: var(--color-dark-2);
-  padding: 3rem 2rem;
+  padding: 3rem 2.5rem;
   overflow: hidden;
   border-bottom: 1px solid var(--color-grey-2);
 
@@ -13,7 +13,11 @@
   &__link {
     &:link,
     &:visited {
+      transition: all .15s;
       color: var(--color-light);
+    }
+    &:hover {
+      @include hover;
     }
   }
 

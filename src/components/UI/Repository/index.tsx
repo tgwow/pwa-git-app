@@ -4,19 +4,20 @@ import { FiStar, FiLock, FiUnlock } from 'react-icons/fi'
 
 import './styles.scss';
 
-const Repositorie: React.FC = () => {
+import { Repo } from '../../../pages/Repositories';
+
+const Repository: React.FC<Repo> = ({rep } : Repo) => {
+  const {id, name, description, stargazers_count, html_url } = rep;
+
   return (
-    <li className="repository">
-      <a href="" className="repository__link">
-        <h2 className="repository__name heading-secondary u-margin-bottom-0">brasilliapp-react-native</h2>
-        <p className="repository__desc">Repository for centralization of the BrasiliApp mobile project</p>
+    <li key={id} className="repository">
+      <a href={html_url} target="_blank" rel="noopener noreferrer" className="repository__link">
+        <h2 className="repository__name heading-secondary u-margin-bottom-0">{name}</h2>
+        <p className="repository__desc">{description}</p>
       </a>
       <div className="repository__info">
         <div className="repository__stars">
-          <FiStar size={18}/> 32
-          {/* <span className="repository__stars__icon">
-            <>
-          </span> */}
+          <FiStar size={18}/> {stargazers_count}
         </div>
         <div className="repository__options">
           <FiUnlock size={18}/>
@@ -27,4 +28,4 @@ const Repositorie: React.FC = () => {
   )
 }
 
-export default Repositorie;
+export default Repository;

@@ -1,23 +1,24 @@
-import React from 'react'
-import { IconType } from 'react-icons';
-
-import { Link } from 'react-router-dom'
+import React, {useContext} from 'react'
 
 import './styles.scss';
+import NavigationContext, {OptionProps} from "../../../contexts/context.navigation";
+import {Link} from "react-router-dom";
 
-interface BottomBarProps {
-  Icon: IconType;
-  size: number;
-  active?: boolean;
-}
+const BottomBarOption: React.FC<OptionProps> = (props) => {
+  const { Icon, title, id, size } = props;
+  const {isActive, setActive } = useContext(NavigationContext);
 
-// eslint-disable-next-line react/prop-types
-const BottomBarOption: React.FC<BottomBarProps> = (props) => {
-  const { active, Icon, size } = props;
   return (
-    <a className={`bottomBarOption ${active}`} >
-      <Icon size={size} />
-    </a>
+    <Link
+      to={title.toLocaleLowerCase()}
+      className={
+        `bottomBarOption 
+         ${isActive(id) ? 'bottomBarOption__active' : ''}`}
+      onClick={()=>setActive(id)}  
+    >
+      <Icon size={size}/>
+      <span>{title}</span>
+    </Link>
   )
 }
 

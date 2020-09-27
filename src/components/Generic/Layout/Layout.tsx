@@ -1,7 +1,7 @@
 import React from 'react'
-import Sidebar from '../Navigation/Sidebar'
 
-import BottomBar from '../Navigation/BottomBar';
+import NavigationConfig from "../NavigationConfig";
+import {NavigationProvider} from "../../../contexts/context.navigation";
 
 interface SidebarProps  {
   loggedIn : boolean
@@ -12,9 +12,10 @@ const Layout: React.FC<SidebarProps> = ({ children, loggedIn}) => {
   if(loggedIn) {
     layout = (  
       <> 
-        <Sidebar loggedIn={loggedIn}/>
+        <NavigationProvider>
+          <NavigationConfig/>
+        </NavigationProvider>
         {children}
-        <BottomBar/>
       </>
     )
   }

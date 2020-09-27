@@ -1,25 +1,22 @@
-import React from 'react'
+import React, {useContext} from 'react'
 
 import './styles.scss';
+import NavigationContext, {OptionProps} from "../../../contexts/context.navigation";
+import {Link} from "react-router-dom";
 
-import { Link } from 'react-router-dom';
+const SidebarOption:React.FC<OptionProps> = (props) => {
+  const { Icon, title, id, size } = props;
 
-// interface of icons
-import { IconType } from 'react-icons/lib/esm';
-
-interface OptionProps {
-  Icon: IconType,
-  title: string,
-  active?: boolean
-}
-
-const SidebarOption: React.FC<OptionProps> = ({ Icon, title, active }) => {
+  const { isActive, setActive } = useContext(NavigationContext);
   return (
-    <Link to={title.toLocaleLowerCase()} className={`sidebarOption ${active && 'sidebarOption__active'}`}>
-      <Icon size={32}/>
+    <Link
+      to={`/${title.toLocaleLowerCase()}`}
+      className={`sidebarOption ${isActive(id) ? 'sidebarOption__active' : ''} `}
+      onClick={() =>setActive(id)}
+    >
+      <Icon size={size} />
       <h2> { title } </h2>
     </Link>
   )
 }
-
 export default SidebarOption;

@@ -1,18 +1,26 @@
-# pwa-git-app
+# Github tree
 
-This application will be made for an test inership at Luby Software and consists in make a PWA (Progressive Web Application) that consumes Github API to show informations about an user.
+This application was made for an intership test at Luby Software and consists of making a PWA (Progressive Web Application) that the user can navigate between various github accounts, viewing repositories, followers and other information.
+## Installation
 
-## Available Scripts
+Follow these steps:
 
-In the project directory, you can run:
+```
+git clone https://github.com/tgwow/pwa-git-app.git
+cd pwa-git-app
+npm install
+npm start
+```
 
-### `yarn start`
-
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+The app will open in your [localhost](http://localhost:3000)
 
 ## Technologies
 
-[React.js](https://reactjs.com).
+[React.js](https://reactjs.com) - User interface
 
-[Typescript.js](https://reactjs.com).
+[Typescript](https://www.typescriptlang.org/) - Add type to Javascript 
+
+[SASS](https://sass-lang.com/) - Empowers CSS
+
+## Contributors
+Feel free to send a pull request and improves the application :D

@@ -1,27 +1,23 @@
-import React from 'react';
-
-import { FiGithub, FiHome, FiUser } from 'react-icons/fi';
+import React, { useContext } from 'react';
 
 import './styles.scss';
 
-import SidebarOption from '../SidebarOption';
+import SidebarOption  from '../SidebarOption';
+import NavigationContext from "../../../contexts/context.navigation";
 
-interface SidebarProps  {
-  loggedIn : boolean
-}
+const Sidebar: React.FC = () => {
 
-const Sidebar: React.FC<SidebarProps> = ({children, loggedIn }) => {
+  const { data } = useContext(NavigationContext);
+
   return (
-    <>
-      <nav className="sidebar">
-        <SidebarOption Icon={FiHome} title="Home" active={true}/> 
-        <SidebarOption Icon={FiGithub} title="Repos"/>
-        <SidebarOption Icon={FiUser} title="Seguidores"/> 
-        <SidebarOption Icon={FiUser} title="Seguindo"/> 
-      </nav>
-      {children}
-    </>
-  ) 
+    <nav className="sidebar">
+      {
+        data.map(opt=> (
+          <SidebarOption key={opt.id} id={opt.id} title={opt.title} size={opt.size} Icon={opt.Icon}/>
+        ))
+      }
+    </nav>
+  )
 }
 
 export default Sidebar;

@@ -13,8 +13,7 @@
 
   &__info {
     margin-top: 8rem;
-    padding: 1.5rem 2rem;
-    // z-index: 200;
+    padding: 1.5rem 2.5rem;
 
   }
   &__username {
@@ -24,28 +23,28 @@
   
   &__bio {
     margin-top: 4rem;
-    padding: 1.5rem 2rem;
+    padding: 1.5rem 2.5rem;
   }
   & h2 {
     position: relative;
     @include yellow-border;
   }
 }
-
+.hidden {
+  display: none;
+}
 .avatar-box {
   position: absolute;
   top: -13rem;
   left: 50%;
   z-index: 200;
   transform: translateX(-50%);
-  z-index: 200;
 }
 .header {
   height: 13rem;
   background-color: var(--color-dark-1);
 
   &__flex {
-    padding: 2rem 1.5rem;
     display: flex;
     justify-content: space-between;
     width: 100%;
@@ -59,6 +58,7 @@
   }
 
   &__logoff {
+    &,
     &:link,
     &:visited {
       font-size: 1.7rem;
@@ -67,9 +67,17 @@
       color: var(--color-white);
       display: flex;
       align-items: center;
+      cursor: pointer;
+      transition: all .15s;
+
+    }
+    &:hover, &:hover > svg {
+      filter: opacity(.8);
+
     }
     > svg {
       margin-left: 1rem;
+      transition: all .15s;
       color: var(--color-secondary);
     }
   }
